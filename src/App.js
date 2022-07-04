@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import "./App.css";
+import AddTaskForm from './components/AddTaskForm';
 import "./components/Header";
 import TaskList from './components/TaskList';
 
@@ -53,23 +54,7 @@ function App() {
         setTaskStatus={setTaskStatus} 
         removeTask={removeTask}></TaskList>
         
-        <div className = "filter-wrapper">
-            <label htmlFor="filter" className="filter-label">Show incomplete tasks only</label>
-            <input 
-            type ="checkbox" 
-            id="filter" 
-            checked={showIncomplete}
-            onChange={(e) => setShowIncomplete(e.target.checked)}></input>
-        </div>
-        <form onSubmit={handleSubmit} className="form">
-            <label htmlFor="new-item">Add to the Todo List</label>
-            <input 
-            type ="type"
-            id="new-item"
-            value={newTask}
-            onChange={handleInputChange}></input>
-            <button type="submit">Add Item</button>
-        </form>
+        <AddTaskForm newTask={newTask} handleSubmit={handleSubmit} handleInputChange={handleInputChange}></AddTaskForm>
     </div>
   );
 }
